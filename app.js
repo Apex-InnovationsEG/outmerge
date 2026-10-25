@@ -14,7 +14,7 @@
   const clean = (r) => {
     if (!r) return null;
     const version = typeof r.version === "string" ? r.version.replace(/^v/, "") : "";
-    if (!/^\d+\.\d+\.\d+(-[0-9A-Za-z.-]+)?$/.test(version)) return null;
+    if (!/^(0|[1-9]\d{0,5})\.(0|[1-9]\d{0,5})\.(0|[1-9]\d{0,5})(-[0-9A-Za-z]+(\.[0-9A-Za-z]+)*)?$/.test(version)) return null;
     const size = Number.isFinite(r.size) && r.size > 0 ? r.size : null;
     const sha256 = typeof r.sha256 === "string" && /^[0-9a-f]{64}$/i.test(r.sha256) ? r.sha256.toLowerCase() : null;
     return { version, size, sha256 };
