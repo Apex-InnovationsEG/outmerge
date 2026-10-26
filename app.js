@@ -1,4 +1,4 @@
-// OutMerge download page (D95): the button always points at the newest release; its version, size and SHA-256 come
+// OutMerge download page (D95, D102): the buttons always point at the newest release; its version, size and SHA-256 come
 // from GitHub's API, or from latest.json (written when a release is published) if the API cannot be reached.
 // Until a release exists the page says "Download coming soon". Values are checked and set as text only.
 (() => {
@@ -54,12 +54,12 @@
       a.removeEventListener("click", comingSoon);
       a.removeAttribute("aria-disabled");
       a.href = DOWNLOAD_URL;
-      a.textContent = "Download for Windows";
+      (a.querySelector("[data-label]") || a).textContent = "Download for Windows";
     });
-    $("[data-meta]").textContent = ["Version " + r.version, mb, "no installer, no admin rights"].filter(Boolean).join(" · ");
-    $("[data-title]").textContent = "Download OutMerge " + r.version;
-    $("[data-version]").textContent = r.version;
-    $("[data-size]").textContent = mb ? `${mb} (${r.size.toLocaleString("en-US")} bytes)` : "-";
+    $("[data-meta]").textContent = ["Version " + r.version, mb, "Windows 10 and 11", "Nothing to install"].filter(Boolean).join(" · ");
+    $("[data-title]").textContent = "Get OutMerge " + r.version;
+    $all("[data-version]").forEach((e) => (e.textContent = r.version));
+    $("[data-size]").textContent = mb ? ` · ${mb} (${r.size.toLocaleString("en-US")} bytes)` : "";
     if (r.sha256) {
       $("[data-sha]").textContent = r.sha256;
       $("[data-copy]").hidden = false;

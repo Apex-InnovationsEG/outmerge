@@ -6,140 +6,156 @@
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'self' https://api.github.com; img-src 'self' data:; style-src 'self'; script-src 'self'; font-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="color-scheme" content="light dark">
-<meta name="description" content="OutMerge by Apex Innovations: one personal email to every person on your list, sent through the classic Outlook on your own Windows PC.">
+<meta name="description" content="OutMerge by Apex Innovations: write an email once and every person on your list gets their own, sent through the classic Outlook on your Windows PC.">
 <title>OutMerge</title>
 <link rel="icon" type="image/svg+xml" href="img/logo.svg">
 <link rel="preload" href="fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/inter-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<a class="skip" href="#top">Skip to content</a>
+<a class="skip" href="#main">Skip to content</a>
 
-<header class="band">
-  <nav class="wrap nav" aria-label="Main">
+<!-- D102: option 2, dark hero, editorial. Reference: design/site-reference/OutMerge-site-option2.dc.html -->
+<header class="hero-band" id="top">
+  <div class="wrap nav">
     <a class="logo" href="#top">
-      <picture>
-        <source srcset="img/logo-dark.svg" media="(prefers-color-scheme: dark)">
-        <img src="img/logo.svg" width="38" height="38" alt="">
-      </picture>
-      <span class="logo-word"><span class="accent">Out</span>Merge</span>
+      <img src="img/logo-dark.svg" width="34" height="34" alt="">
+      <span class="word"><span class="out">Out</span>Merge</span>
     </a>
-    <div class="nav-links">
+    <nav class="nav-links" aria-label="Page">
       <a href="#features">Features</a>
-      <a href="#privacy">Privacy</a>
-      <a href="#how">How it works</a>
+      <a href="#safety">Safety</a>
       <a href="#faq">FAQ</a>
-    </div>
-    <a class="btn btn-small" href="#download">Download</a>
-  </nav>
+    </nav>
+    <a class="btn btn-ghost" href="#download">Download</a>
+  </div>
 </header>
 
-<main id="top">
-  <section class="wrap hero">
-    <div class="hero-text">
-      <span class="pill"><span class="dot" aria-hidden="true"></span>Free · Windows 10 and 11 · classic Outlook</span>
-      <h1>One personal email to everyone on your list.</h1>
-      <p class="lede">OutMerge sends each person their own email, with their name and details filled in, from your own Outlook account and with your usual signature. It runs on your PC, in Arabic and English.</p>
-      <div class="actions">
-        <a class="btn btn-primary" data-download href="#download">Download for Windows</a>
-        <a class="btn btn-plain" href="#how">See how it works</a>
+<main id="main">
+  <section class="hero-band" aria-labelledby="hero-h">
+    <div class="hero">
+      <p class="eyebrow">Mail merge for Outlook</p>
+      <h1 id="hero-h">Write it once.<br>Every person gets their own.</h1>
+      <p class="lede">OutMerge sends one personal email to each name on your list, through your own Outlook. In English or Arabic.</p>
+      <a class="btn btn-primary btn-big" data-download href="#download" aria-disabled="true">
+        <svg viewBox="0 0 256 256" width="20" height="20" aria-hidden="true" focusable="false"><path fill="currentColor" d="M224,144v64a8,8,0,0,1-8,8H40a8,8,0,0,1-8-8V144a8,8,0,0,1,16,0v56H208V144a8,8,0,0,1,16,0Zm-101.66,5.66a8,8,0,0,0,11.32,0l40-40a8,8,0,0,0-11.32-11.32L136,124.69V32a8,8,0,0,0-16,0v92.69L93.66,98.34a8,8,0,0,0-11.32,11.32Z"/></svg>
+        <span data-label>Download coming soon</span>
+      </a>
+      <p class="meta" data-meta>Windows 10 and 11 · Nothing to install · The first release is on its way</p>
+    </div>
+  </section>
+
+<div class="shot-wrap">
+  <div class="shot">
+    <!-- The app's Send step, drawn in HTML and CSS from design/site-reference/OutMerge-site-appmock.dc.html. -->
+    <div class="app" role="img" aria-label="OutMerge sending a batch: progress bar, 142 sent, 3 failed, 95 remaining, and a results table with each person's status">
+      <div class="app-bar">
+        <img src="img/logo.svg" alt="" class="app-logo">
+        <span class="app-name">OutMerge</span>
+        <span class="app-steps">
+          <span class="app-step">1 Recipients</span>
+          <span class="app-step">2 Compose</span>
+          <span class="app-step">3 Check and test</span>
+          <span class="app-step is-on">4 Send</span>
+        </span>
+        <span class="app-ok">Outlook connected</span>
       </div>
-      <p class="meta" data-meta>Download coming soon</p>
-    </div>
-    <figure class="shot">
-      <picture>
-        <source srcset="img/app-dark.png" media="(prefers-color-scheme: dark)">
-        <img src="img/app-light.png" width="1600" height="1000" alt="The OutMerge Compose step: an invitation with Title, Name and Company fields, a right-to-left Arabic line, and a preview of the email for one recipient.">
-      </picture>
-      <figcaption>The Compose step, with made-up example data.</figcaption>
-    </figure>
-  </section>
-
-  <section id="features" class="wrap section" aria-labelledby="features-h">
-    <div class="section-head">
-      <h2 id="features-h">Mail merge that feels like writing it yourself.</h2>
-      <p>Pick a list, write once, check it, and send. Every email is a real one from your Outlook, not a newsletter.</p>
-    </div>
-    <div class="grid">
-      <article class="card"><h3>Every email is personal</h3><p>Put First Name, Last Name, Title or any column of your list into the subject and the message. Each person gets their own email with their own details.</p></article>
-      <article class="card"><h3>From your own Outlook</h3><p>Sent through the classic Outlook on your PC, from the account you choose, with your usual signature. Copies land in your Sent Items like any email you write.</p></article>
-      <article class="card"><h3>Arabic and English</h3><p>Right-to-left paragraphs next to left-to-right ones, Arabic names kept exactly as you typed them, and a font that reads well in Outlook.</p></article>
-      <article class="card"><h3>Lists from where you keep them</h3><p>Import an Excel workbook or a CSV file, read your Outlook contacts or an address-book group, or type a list in OutMerge.</p></article>
-      <article class="card"><h3>Check before you send</h3><p>See the email for any recipient, send yourself a test, and get a short list of empty fields, invalid addresses and duplicates.</p></article>
-      <article class="card"><h3>In control while it sends</h3><p>A gap between emails, Pause and Resume, a clear count of what was sent and what waits in your Outbox, and the results as an Excel file.</p></article>
-    </div>
-  </section>
-
-  <section id="privacy" class="night" aria-labelledby="privacy-h">
-    <div class="wrap section split">
-      <div class="intro">
-        <h2 id="privacy-h">Your PC. <span>Your data.</span></h2>
-        <p>OutMerge is a desktop app, not a website. Your lists, emails and history stay on your own computer.</p>
+      <div class="app-body">
+        <div class="app-card">
+          <div class="app-row">
+            <div><div class="app-title">Sending Partners Day invitation</div><div class="app-muted">One email every 3 seconds · about 5 minutes left</div></div>
+            <div class="app-actions"><span class="app-btn">Pause</span><span class="app-btn app-btn-danger">Cancel</span></div>
+          </div>
+          <div class="app-progress"><span class="p-sent"></span><span class="p-wait"></span><span class="p-fail"></span></div>
+          <div class="app-counts">
+            <div class="app-count"><div class="app-muted">Sent</div><div class="app-num is-ok">142</div></div>
+            <div class="app-count"><div class="app-muted">Failed</div><div class="app-num is-bad">3</div></div>
+            <div class="app-count"><div class="app-muted">Remaining</div><div class="app-num">95</div></div>
+          </div>
+        </div>
+        <div class="app-card app-table">
+          <div class="app-thead"><strong>Results</strong><span class="app-link">Export to Excel</span></div>
+          <div class="app-tr"><span dir="rtl" lang="ar" class="app-ar">ليلى حسن</span><span class="app-muted">laila@deltaapps.example</span><span class="is-ok">Sent</span></div>
+          <div class="app-tr"><span>Sara Nabil</span><span class="app-muted">sara@nilecode.example</span><span class="is-wait">Waiting in Outbox</span></div>
+          <div class="app-tr"><span>Omar Fathy</span><span class="app-muted">omar@pyramid</span><span class="is-bad">Failed: bad address</span></div>
+          <div class="app-tr"><span>Karim Mostafa</span><span class="app-muted">karim@alexcloud.example</span><span class="is-idle">Waiting</span></div>
+        </div>
       </div>
-      <ul class="promises">
-        <li><strong>No cloud, no account with us.</strong> Nothing you import or write is sent anywhere except through your own Outlook, to the people you chose.</li>
-        <li><strong>Encrypted on your PC.</strong> Lists and history are stored encrypted, readable only by your Windows account on that PC.</li>
-        <li><strong>No tracking.</strong> No analytics, no telemetry, no open tracking in your emails.</li>
-        <li><strong>Updates only when you ask.</strong> Settings has a Check for updates button. Every update is signed, and OutMerge checks the signature before it installs anything.</li>
-      </ul>
     </div>
-  </section>
+  </div>
+</div>
 
-  <section id="how" class="wrap section" aria-labelledby="how-h">
-    <div class="section-head"><h2 id="how-h">Three steps</h2></div>
-    <ol class="steps grid">
-      <li class="card"><span class="step-num" aria-hidden="true">1</span><h3>Download and run</h3><p>One file, no installer and no admin rights. Keep it in any folder of your own and double-click it.</p></li>
-      <li class="card"><span class="step-num" aria-hidden="true">2</span><h3>Choose the people</h3><p>Import a workbook, a CSV file or an Outlook group, and check the names and addresses in the preview.</p></li>
-      <li class="card"><span class="step-num" aria-hidden="true">3</span><h3>Write, check and send</h3><p>Write the email with fields, look at it for any recipient, send yourself a test, then send to everyone.</p></li>
+<section id="features" class="wrap features" aria-labelledby="features-h">
+  <h2 id="features-h" class="sr-only">What OutMerge does</h2>
+  <ol class="stories">
+    <li>
+      <h3>Lists from wherever they live</h3>
+      <p>Import Excel or CSV, Outlook contacts or a distribution group. First and last names are kept apart, so {First Name} always reads naturally.</p>
+    </li>
+    <li>
+      <h3>A real editor, in both directions</h3>
+      <p>Bold, colour, links, lists, tables and pasted images. Switch any message or paragraph to right to left for Arabic.</p>
+    </li>
+    <li>
+      <h3>Sent from you, not a robot</h3>
+      <p>Every email goes out from your own Outlook account with your signature, and sits in your Sent Items like any other.</p>
+    </li>
+    <li>
+      <h3>Results for every single person</h3>
+      <p>Sent, waiting in Outbox, failed and why. Resend the rest in one click, or export everything to Excel.</p>
+    </li>
+  </ol>
+</section>
+
+<section id="safety" class="wrap safety-wrap" aria-labelledby="safety-h">
+  <div class="safety">
+    <h2 id="safety-h">Five checks between you and a wrong email</h2>
+    <ol>
+      <li>Preview any recipient exactly as they will see it.</li>
+      <li>The pre-send check flags empty fields and bad or duplicate addresses.</li>
+      <li>Send up to five personalised tests to yourself.</li>
+      <li>Confirm the count and the sending account before anything leaves.</li>
+      <li>Pause, resume or cancel at any time. An email already handed to Outlook is never sent again.</li>
     </ol>
-  </section>
+  </div>
+</section>
 
-  <section id="download" class="wrap section" aria-labelledby="download-h">
-    <div class="dl">
-      <div class="dl-info">
-        <h2 id="download-h" data-title>Download OutMerge</h2>
-        <dl class="facts">
-          <dt>File</dt><dd>OutMerge.exe</dd>
-          <dt>Version</dt><dd data-version>Coming soon</dd>
-          <dt>Size</dt><dd data-size>-</dd>
-          <dt>SHA-256</dt>
-          <dd class="hash"><code data-sha>Published with the first release</code><button class="copy" type="button" data-copy hidden>Copy</button></dd>
-        </dl>
-        <h3 class="needs-h">What you need</h3>
-        <ul class="needs">
-          <li>Windows 10 or 11 (64-bit).</li>
-          <li>The classic Outlook, 2016 or later, set up with your account. The new Outlook cannot be used by other programs.</li>
-          <li>The Microsoft Edge WebView2 Runtime. Most PCs already have it; if not, OutMerge shows Microsoft's download link.</li>
-        </ul>
-      </div>
-      <div class="dl-side">
-        <a class="btn btn-primary" data-download href="#download" aria-disabled="true">Download coming soon</a>
-        <p class="note">Windows may say "Windows protected your PC", because OutMerge is not signed with a commercial certificate. Choose <strong>More info</strong>, then <strong>Run anyway</strong>. You can compare the file's SHA-256 with the one shown here first.</p>
-        <p class="note"><a href="https://github.com/Apex-InnovationsEG/outmerge/releases">All releases and their notes</a></p>
-      </div>
+<section id="download" class="dark-band" aria-labelledby="download-h">
+  <div class="wrap download">
+    <div class="dl-main">
+      <h2 id="download-h" data-title>Get OutMerge</h2>
+      <p class="dl-lede">One file. Put it in any folder and run it. No admin rights, no installer.</p>
+      <dl class="facts">
+        <dt>File</dt><dd>OutMerge.exe<span data-size></span></dd>
+        <dt>Version</dt><dd data-version>Coming soon</dd>
+        <dt>Needs</dt><dd>Windows 10 or 11 (64-bit), the classic Outlook 2016 or later set up with your account, and the Microsoft Edge WebView2 Runtime (most PCs have it; if not, OutMerge shows Microsoft's download link)</dd>
+        <dt>SHA-256</dt><dd class="hash"><code data-sha>Published with the first release</code> <button class="copy" type="button" data-copy hidden>Copy</button></dd>
+      </dl>
     </div>
-  </section>
+    <div class="dl-side">
+      <a class="btn btn-primary btn-block" data-download href="#download" aria-disabled="true"><span data-label>Download coming soon</span></a>
+      <p class="smartscreen">Windows may say "Windows protected your PC", because OutMerge is not signed with a commercial certificate. Choose <strong>More info</strong>, then <strong>Run anyway</strong>. You can compare the file's SHA-256 with the one shown here first.</p>
+      <p class="dl-link"><a href="https://github.com/Apex-InnovationsEG/outmerge/releases">All releases and their notes</a></p>
+    </div>
+  </div>
+</section>
 
-  <section id="faq" class="band-top" aria-labelledby="faq-h">
-    <div class="wrap section faq">
-      <div class="section-head"><h2 id="faq-h">Questions</h2></div>
-      <div class="faq-list">
-        <details open><summary>Windows warns me when I run it. Is it safe?</summary><p>Windows shows "Windows protected your PC" for apps that are not signed with a commercial certificate. Choose More info, then Run anyway. To be sure the file is the one published here, run <code>Get-FileHash .\OutMerge.exe</code> in PowerShell and compare the result with the SHA-256 above.</p></details>
-        <details><summary>Does it work with the new Outlook or Outlook on the web?</summary><p>No. OutMerge works through the classic Outlook for Windows (2016 or later), which lets other programs on the PC send email through it. The new Outlook does not.</p></details>
-        <details><summary>Will Outlook ask me to allow each email?</summary><p>Not on a PC with up-to-date antivirus, which is the usual case. If your organisation's settings make Outlook ask, OutMerge tells you before you send.</p></details>
-        <details><summary>Does OutMerge upload my lists anywhere?</summary><p>No. Your lists, emails and history stay on your PC, encrypted for your Windows account. Emails leave only through your own Outlook.</p></details>
-        <details><summary>How do I know an email was really sent?</summary><p>OutMerge counts an email as Sent once its copy is in your Outlook Sent Items. Until then it shows it as waiting in your Outbox, and checks again every minute and whenever you press Check Sent Items now. It never sends the same email twice.</p></details>
-        <details><summary>How do I update?</summary><p>In OutMerge, open Settings and press Check for updates. If a new version exists, OutMerge shows what changed and downloads it only when you say so. It checks the file's SHA-256 and signature, then replaces itself when you restart it. Your lists and history stay as they are. You can also download the new file here and replace the old one.</p></details>
-      </div>
-    </div>
-  </section>
+<section id="faq" class="wrap faq" aria-labelledby="faq-h">
+  <h2 id="faq-h">Questions</h2>
+  <details><summary>Does it work with the new Outlook or Outlook on the web?</summary><p>No. OutMerge works through the classic Outlook for Windows, 2016 or later, which lets other programs on the PC send email through it. The new Outlook does not.</p></details>
+  <details><summary>Where is my data?</summary><p>On your PC only, encrypted for your Windows account. Your lists, emails and history are never uploaded, and emails leave only through your own Outlook. OutMerge never asks for a password.</p></details>
+  <details><summary>Windows warns me when I run it. Is it safe?</summary><p>Windows shows "Windows protected your PC" for apps that are not signed with a commercial certificate. Choose More info, then Run anyway. To be sure the file is the one published here, run <code>Get-FileHash .\OutMerge.exe</code> in PowerShell and compare the result with the SHA-256 above.</p></details>
+  <details><summary>Will Outlook ask me to allow each email?</summary><p>Not on a PC with up-to-date antivirus, which is the usual case. If your organisation's settings make Outlook ask, OutMerge tells you before you send.</p></details>
+  <details><summary>How do I know an email was really sent?</summary><p>OutMerge counts an email as Sent once its copy is in your Outlook Sent Items. Until then it shows it as waiting in your Outbox, and checks again every minute and whenever you press Check Sent Items now. Once Outlook has an email, OutMerge never sends it again.</p></details>
+  <details><summary>How do I update?</summary><p>In OutMerge, open Settings and press Check for updates. If a new version exists, OutMerge shows what changed and downloads it only when you say so. It checks the file's SHA-256 and signature before it installs, and your lists and history stay as they are.</p></details>
+</section>
 </main>
 
-<footer class="band-top">
+<footer class="dark-band foot-band">
   <div class="wrap foot">
-    <span class="logo-word small-word"><span class="accent">Out</span>Merge</span>
-    <span class="small">© 2026 <a href="https://apex-innovationseg.github.io/">Apex Innovations</a></span>
-    <div class="links"><a href="#download">Download</a><a href="#privacy">Privacy</a><a href="#faq">FAQ</a></div>
+    <span>OutMerge · © 2026 <a href="https://apex-innovationseg.github.io/">Apex Innovations</a></span>
+    <span class="foot-links"><a href="#download">Download</a><a href="#faq">FAQ</a></span>
   </div>
 </footer>
 
