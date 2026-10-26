@@ -24,6 +24,8 @@
   --muted: #57606A;
   --line: #E1E4E8;
   --panel: #F5F8FC;
+  --card: #FFFFFF;
+  --card-line: #E1E4E8;
   --number: #D5DAE0;
   --link: #0B4F8A;
   --shadow: 0 30px 80px rgba(11, 18, 32, 0.35);
@@ -38,6 +40,8 @@
     --muted: #AFBCCA;
     --line: #2A3A4E;
     --panel: #1B2738;
+    --card: #1B2738;
+    --card-line: #2A3A4E;
     --number: #31425A;
     --link: #7DB8F0;
     --shadow: 0 30px 80px rgba(0, 0, 0, 0.55);
@@ -156,22 +160,26 @@ h1, h2, h3 { margin: 0; }
 .app-tr:last-child { border-bottom: 0; }
 .app-ar { text-align: left; font-family: "Segoe UI", Tahoma, "Noto Sans Arabic", sans-serif; }
 
-/* Feature stories 01 to 04: the numbers are drawn by CSS from the list's own order */
-.features { max-width: 1100px; padding-top: 112px; padding-bottom: 48px; }
-.stories { list-style: none; margin: 0; padding: 0; counter-reset: story; display: flex; flex-direction: column; gap: 72px; }
-.stories li { counter-increment: story; display: grid; grid-template-columns: 120px minmax(0, 1fr); column-gap: 40px; align-items: baseline; }
+/* Feature stories 01 to 04 as cards: four in a row, two below 1000px, one on phones. The numbers are drawn by CSS
+   from the list's own order. */
+.features { max-width: 1200px; padding-top: 112px; padding-bottom: 48px; }
+.stories { list-style: none; margin: 0; padding: 0; counter-reset: story; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; }
+.stories li { counter-increment: story; display: flex; flex-direction: column; padding: 28px; border: 1px solid var(--card-line); border-radius: 12px; background: var(--card); }
 .stories li::before {
   content: counter(story, decimal-leading-zero);
-  grid-row: span 2;
-  font-size: 64px; font-weight: 800; line-height: 1; letter-spacing: -2px; color: var(--number);
+  margin-bottom: 20px;
+  font-size: 56px; font-weight: 800; line-height: 1; letter-spacing: -2px; color: var(--number);
 }
-.stories h3 { margin-bottom: 10px; font-size: clamp(25px, 3.4vw, 32px); line-height: 1.2; letter-spacing: -0.025em; font-weight: 700; }
-.stories p { margin: 0; max-width: 640px; color: var(--muted); font-size: 18px; }
+.stories h3 { margin-bottom: 10px; font-size: 22px; line-height: 1.25; letter-spacing: -0.02em; font-weight: 700; }
+.stories p { margin: 0; color: var(--muted); font-size: 16px; }
+@media (max-width: 1000px) {
+  .stories { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+}
 @media (max-width: 640px) {
   .features { padding-top: 80px; }
-  .stories { gap: 48px; }
-  .stories li { grid-template-columns: minmax(0, 1fr); }
-  .stories li::before { grid-row: auto; font-size: 44px; margin-bottom: 8px; }
+  .stories { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+  .stories li { padding: 24px; }
+  .stories li::before { font-size: 44px; margin-bottom: 14px; }
 }
 
 /* Five checks */
